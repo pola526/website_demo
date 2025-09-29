@@ -79,13 +79,39 @@
       </a>
     </p>
 
-  <form class="bg-white p-6 rounded shadow space-y-4"
-  action="mailto:YOUR_EMAIL_HERE" method="post" enctype="text/plain">
-    <input type="text" placeholder="الاسم" class="w-full border p-2 rounded">
-    <input type="email" placeholder="البريد الإلكتروني" class="w-full border p-2 rounded">
-    <textarea placeholder="رسالتك" class="w-full border p-2 rounded"></textarea>
-    <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded">إرسال</button>
-  </form>
+<form id="contact-form" class="bg-white p-6 rounded shadow space-y-4">
+  <input type="text" id="c-name" name="name" placeholder="الاسم" class="w-full border p-2 rounded" required>
+  <input type="email" id="c-email" name="email" placeholder="البريد الإلكتروني" class="w-full border p-2 rounded" required>
+  <textarea id="c-message" name="message" placeholder="رسالتك" class="w-full border p-2 rounded" required></textarea>
+  <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded">إرسال</button>
+</form>
+
+<script>
+document.getElementById("contact-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  // اجمع البيانات
+  const name = document.getElementById("c-name").value;
+  const email = document.getElementById("c-email").value;
+  const message = document.getElementById("c-message").value;
+
+  // ✅ الخطوة 1: إرسال للإيميل عبر Formspree (استبدل YOUR_FORM_ID برابطك)
+  fetch("https://formspree.io/f/YOUR_FORM_ID", {
+    method: "POST",
+    body: new FormData(this),
+    headers: { 'Accept': 'application/json' }
+  }).then(() => {
+    // ✅ الخطوة 2: فتح واتساب بنفس البيانات
+    const whatsappNumber = "96555334485"; // رقم واتساب الخاص بك
+    const whatsappText = `الاسم: ${name}%0Aالايميل: ${email}%0Aالرسالة: ${message}`;
+    window.open(`https://wa.me/${whatsappNumber}?text=${whatsappText}`, "_blank");
+    alert("تم إرسال الرسالة بنجاح ✅");
+    this.reset();
+  }).catch(() => {
+    alert("حصل خطأ ❌ حاول مرة أخرى");
+  });
+});
+</script>
 
   <!-- زر الاتصال المباشر -->
   <div class="mt-6 text-center">

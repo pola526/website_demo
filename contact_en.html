@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Swan Skin Care - اتصل بنا</title>
+  <title>Swan Skin Care - Contact Us</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
   <style>
@@ -79,18 +79,44 @@
       </a>
     </p>
 
-  <form class="bg-white p-6 rounded shadow space-y-4" action="mailto:YOUR_EMAIL_HERE" method="post" enctype="text/plain">
-    <input type="text" placeholder="Name" class="w-full border p-2 rounded">
-    <input type="email" placeholder="Email Address" class="w-full border p-2 rounded">
-    <textarea placeholder="Your Message" class="w-full border p-2 rounded"></textarea>
-    <button type="Submit" class="bg-blue-700 text-white px-4 py-2 rounded">Submit</button>
-  </form>
+<form id="contact-form-en" class="bg-white p-6 rounded shadow space-y-4">
+  <input type="text" id="c-name-en" name="name" placeholder="Name" class="w-full border p-2 rounded" required>
+  <input type="email" id="c-email-en" name="email" placeholder="Email Address" class="w-full border p-2 rounded" required>
+  <textarea id="c-message-en" name="message" placeholder="Your Message" class="w-full border p-2 rounded" required></textarea>
+  <button type="submit" class="bg-blue-700 text-white px-4 py-2 rounded">Submit</button>
+</form>
+
+<script>
+document.getElementById("contact-form-en").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const name = document.getElementById("c-name-en").value;
+  const email = document.getElementById("c-email-en").value;
+  const message = document.getElementById("c-message-en").value;
+
+  // ✅ Step 1: Send via Formspree (replace YOUR_FORM_ID with your endpoint)
+  fetch("https://formspree.io/f/YOUR_FORM_ID", {
+    method: "POST",
+    body: new FormData(this),
+    headers: { 'Accept': 'application/json' }
+  }).then(() => {
+    // ✅ Step 2: Open WhatsApp with same info
+    const whatsappNumber = "96555334485"; 
+    const whatsappText = `Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
+    window.open(`https://wa.me/${whatsappNumber}?text=${whatsappText}`, "_blank");
+    alert("Message sent successfully ✅");
+    this.reset();
+  }).catch(() => {
+    alert("Something went wrong ❌ Please try again.");
+  });
+});
+</script>
 
 
 
   <!-- زر الاتصال المباشر -->
   <div class="mt-6 text-center">
-    <a href="tel:/96555334485" 
+    <a href="tel:96555334485" 
        class="bg-green-600 text-white px-6 py-3 rounded shadow pulse inline-block">
       Call us now 📞
     </a>

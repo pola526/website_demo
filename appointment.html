@@ -62,24 +62,52 @@
 <section class="py-16 px-6 max-w-3xl mx-auto text-center">
   <h1 class="text-4xl font-bold text-white mb-6"
     style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">احجز استشارتك</h1>
-  <p class="mb-6 text-black font-bold" >املأ النموذج وسيتم التواصل معك لتأكيد الحجز.</p>
+  <p class="mb-6 text-black font-bold">املأ النموذج وسيتم التواصل معك لتأكيد الحجز.</p>
   
-  <form action="mailto:YOUR_EMAIL_HERE" method="post" enctype="text/plain" 
-        class="bg-white p-6 rounded shadow space-y-4">
-    <input type="text" name="name" placeholder="الاسم" 
+  <form id="appointment-form" class="bg-white p-6 rounded shadow space-y-4">
+    <input type="text" id="name" name="name" placeholder="الاسم" 
            class="w-full p-3 border rounded" required>
-    <input type="email" name="email" placeholder="البريد الإلكتروني" 
+    <input type="email" id="email" name="email" placeholder="البريد الإلكتروني" 
            class="w-full p-3 border rounded" required>
-    <input type="tel" name="phone" placeholder="رقم الهاتف" 
+    <input type="tel" id="phone" name="phone" placeholder="رقم الهاتف" 
            class="w-full p-3 border rounded" required dir="rtl">
-    <textarea name="message" placeholder="تفاصيل الاستشارة" 
-              class="w-full p-3 border rounded h-32 " required></textarea>
+    <textarea id="message" name="message" placeholder="تفاصيل الاستشارة" 
+              class="w-full p-3 border rounded h-32" required></textarea>
     <button type="submit" 
             class="bg-blue-700 text-white px-6 py-3 rounded shadow hover:bg-blue-800 transition">
       إرسال
     </button>
   </form>
 </section>
+
+<script>
+document.getElementById("appointment-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  // اجمع البيانات من الفورم
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const phone = document.getElementById("phone").value;
+  const message = document.getElementById("message").value;
+
+  // ✅ الخطوة 1: إرسال للإيميل (Formspree - غيّر YOUR_FORM_ID برابطك)
+  fetch("https://formspree.io/f/YOUR_FORM_ID", {
+    method: "POST",
+    body: new FormData(this),
+    headers: { 'Accept': 'application/json' }
+  }).then(() => {
+    // ✅ الخطوة 2: فتح واتساب مع نفس البيانات
+    const whatsappNumber = "96555334485"; // رقمك على الواتساب
+    const whatsappText = `الاسم: ${name}%0Aالايميل: ${email}%0Aالهاتف: ${phone}%0Aالرسالة: ${message}`;
+    window.open(`https://wa.me/${whatsappNumber}?text=${whatsappText}`, "_blank");
+    alert("تم إرسال البيانات بنجاح ✅");
+    this.reset();
+  }).catch(() => {
+    alert("حصل خطأ، حاول مرة أخرى ❌");
+  });
+});
+</script>
+
 <!-- الفوتر -->
 <footer class="bg-blue-900 text-white text-center py-6 mt-12">
   <a href="index.html">

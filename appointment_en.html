@@ -60,24 +60,52 @@
 <section class="py-16 px-6 max-w-3xl mx-auto text-center">
   <h1 class="text-4xl font-bold text-white mb-6"
     style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">Book Your Consultation</h1>
-  <p class="mb-6 text-black font-bold" >Fill out the form and we will contact you to confirm your appointment.</p>
+  <p class="mb-6 text-black font-bold">Fill out the form and we will contact you to confirm your appointment.</p>
   
-  <form action="mailto:YOUR_EMAIL_HERE" method="post" enctype="text/plain" 
-        class="bg-white p-6 rounded shadow space-y-4">
-    <input type="text" name="name" placeholder="Name" 
+  <form id="appointment-form-en" class="bg-white p-6 rounded shadow space-y-4">
+    <input type="text" id="name-en" name="name" placeholder="Name" 
            class="w-full p-3 border rounded" required>
-    <input type="email" name="email" placeholder="Email Address" 
+    <input type="email" id="email-en" name="email" placeholder="Email Address" 
            class="w-full p-3 border rounded" required>
-    <input type="tel" name="phone" placeholder="Phone Number" 
-           class="w-full p-3 border rounded" required >
-    <textarea name="message" placeholder="Consultation Details" 
-              class="w-full p-3 border rounded h-32 " required></textarea>
+    <input type="tel" id="phone-en" name="phone" placeholder="Phone Number" 
+           class="w-full p-3 border rounded" required>
+    <textarea id="message-en" name="message" placeholder="Consultation Details" 
+              class="w-full p-3 border rounded h-32" required></textarea>
     <button type="submit" 
             class="bg-blue-700 text-white px-6 py-3 rounded shadow hover:bg-blue-800 transition">
       Submit
     </button>
   </form>
 </section>
+
+<script>
+document.getElementById("appointment-form-en").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  // Collect form data
+  const name = document.getElementById("name-en").value;
+  const email = document.getElementById("email-en").value;
+  const phone = document.getElementById("phone-en").value;
+  const message = document.getElementById("message-en").value;
+
+  // ✅ Step 1: Send to email (Formspree - replace YOUR_FORM_ID)
+  fetch("https://formspree.io/f/YOUR_FORM_ID", {
+    method: "POST",
+    body: new FormData(this),
+    headers: { 'Accept': 'application/json' }
+  }).then(() => {
+    // ✅ Step 2: Redirect to WhatsApp with same info
+    const whatsappNumber = "96555334485"; // your WhatsApp number
+    const whatsappText = `Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AMessage: ${message}`;
+    window.open(`https://wa.me/${whatsappNumber}?text=${whatsappText}`, "_blank");
+    alert("Form submitted successfully ✅");
+    this.reset();
+  }).catch(() => {
+    alert("Something went wrong ❌ Please try again.");
+  });
+});
+</script>
+
 </header>
 
 <footer class="bg-blue-900 text-white text-center py-6 mt-12">

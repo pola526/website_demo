@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Swan Skin Care</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <style>
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    .pulse { animation: pulse 2s infinite; }
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      border-radius: 50%;
+      text-align: center;
+      box-shadow: 2px 2px 3px #999;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .whatsapp-float svg {
+      width: 30px;
+      height: 30px;
+      fill: #fff;
+    }
+  </style>
+</head>
+</head>
+<body class="font-sans" style="background-color: #8FB4C4;">
+
+<!-- الهيدر -->
+<header class="flex items-center justify-between p-4 bg-white shadow">
+  <a href="index_en.html">
+    <img src="assets/logo.jpg" alt="Swan Skin Care" class="h-12">
+  </a>
+  <nav class="space-x-4">
+    <a href="index_en.html" class="text-gray-700 hover:text-blue-600">Home</a>
+    <a href="about_en.html" class="text-gray-700 hover:text-blue-600">About Us</a>
+    <a href="services_en.html" class="text-gray-700 hover:text-blue-600">Services</a>
+    <a href="blog_en.html" class="text-blue-700 font-bold">Blog</a>
+    <a href="contact_en.html" class="text-gray-700 hover:text-blue-600">Contact Us</a>
+    <a href="appointment_en.html" class="text-gray-700 hover:text-blue-600">Appointment</a>
+  </nav>
+  <a href="appointment_en.html" class="bg-blue-700 text-white px-4 py-2 rounded pulse">Book your consultation</a>
+
+        <div class="flex space-x-0">
+          <a href="blog.html" class="px-3 py-1 bg-gray-200 rounded hover:bg-gray-300">العربية</a>
+          <a href="blog_en.html" class="px-3 py-1 bg-blue-600 text-white rounded">English</a>
+        </div>
+        
+</header>
+
+<!-- العنوان -->
+<section class="py-16 px-6 text-center">
+  <h1 class="text-4xl font-bold text-white mb-6"
+    style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);" >Swan Skin Care Blog</h1>
+<p class=" text-lg max-w-3xl mx-auto leading-relaxed font-bold">
+    Discover the latest tips and articles on skin, hair and body care with our expert medical team..
+  </p>
+</section>
+
+<!-- المقالات -->
+<section class="py-10 px-6 max-w-6xl mx-auto">
+  <div class="grid md:grid-cols-3 gap-8">
+
+    <!-- مقال 1 -->
+    <div class="bg-white rounded shadow hover:shadow-lg transition overflow-hidden">
+      <img src="assets/27.jpg" alt="healthy skin" class="w-full">
+      <div class="p-6">
+        <h3 class="text-xl font-bold text-blue-800 mb-2">Tips for maintaining healthy skin</h3>
+        <p class="text-gray-600 mb-4">
+          Discover the secrets of daily skin care, including cleansing, moisturizing, and sun protection.
+        </p>
+        <a href="https://www.google.com/search?q=Tips+for+maintaining+healthy+skin" 
+   target="_blank" 
+   class="text-blue-700 font-semibold hover:underline">Read more</a>
+
+      </div>
+    </div>
+
+    <!-- مقال 2 -->
+    <div class="bg-white rounded shadow hover:shadow-lg transition overflow-hidden">
+      <img src="assets/20.jpg" alt="alternatives to laser injections" class="w-full">
+      <div class="p-6">
+        <h3 class="text-xl font-bold text-blue-800 mb-2">Benefits of alternatives to laser injections</h3>
+        <p class="text-gray-600 mb-4">
+          Innovative techniques for skin rejuvenation and collagen stimulation without needles or pain.
+        </p>
+        <a href="https://www.google.com/search?q=Benefits+of+alternatives+to+laser+injections" 
+   target="_blank" 
+   class="text-blue-700 font-semibold hover:underline">Read more</a>
+
+      </div>
+    </div>
+
+    <!-- مقال 3 -->
+    <div class="bg-white rounded shadow hover:shadow-lg transition overflow-hidden">
+      <img src="assets/23_resized.jpg" alt="hair transplant" class="w-full">
+      <div class="p-6">
+        <h3 class="text-xl font-bold text-blue-800 mb-2">The latest hair transplant techniques</h3>
+        <p class="text-gray-600 mb-4">
+          Learn about modern hair transplantation methods to restore your confidence in your appearance.
+        </p>
+<a href="https://www.google.com/search?q=The+latest+hair+transplant+techniques" 
+   target="_blank" 
+   class="text-blue-700 font-semibold hover:underline">Read more</a>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="bg-blue-100 py-12 text-center" style="background-color: #8FB4C4;">
+  <h2 class="text-2xl font-bold text-white mb-4 "style="text-shadow: 2px 2px 4px rgba(0,0,0,0.7);">📖 Follow our blog always</h2>
+  <a href="appointment_en.html" class="bg-green-600 text-white px-6 py-3 rounded shadow pulse">
+    📅 Book your consultation now
+  </a>
+</section>
+
+<!-- الفوتر -->
+<footer class="bg-blue-900 text-white text-center py-6 mt-12">
+  <a href="index_en.html">
+    <img src="assets/logo.jpg" alt="Swan Skin Care" class="h-12 mx-auto mb-2">
+  </a>
+  <p>© 2025 Swan Skin Care. All rights reserved.</p>
+  <p>📍 Kuwait - Sabah Al Salem - Block 1 - Street 118 - Building 463</p>
+  <p>📱 Whatsapp: <a href="https://wa.me/96555334485" class="underline"> +96555334485</a> | ☎️ Phone: +96555334485</p>
+</footer>
+
+<!-- زر واتساب عائم -->
+<a href="https://wa.me/96555334485" class="whatsapp-float pulse" target="_blank">
+  <svg viewBox="0 0 32 32">
+    <path d="M16.001 3.2c-7.065 0-12.8 5.735-12.8 12.8 0 2.257.599 4.457 1.742 6.39l-1.849 6.741 6.905-1.814c1.844.999 3.92 1.521 6.001 1.521h.001c7.065 0 12.8-5.735 12.8-12.8s-5.735-12.8-12.8-12.8zm0 23.466c-1.846 0-3.654-.496-5.236-1.435l-.375-.222-4.096 1.077 1.094-3.995-.244-.41c-1.059-1.779-1.618-3.82-1.618-5.981 0-6.277 5.104-11.382 11.382-11.382s11.382 5.105 11.382 11.382-5.105 11.382-11.382 11.382zm6.271-8.52c-.342-.171-2.02-.996-2.332-1.11-.312-.114-.54-.171-.768.171s-.879 1.11-1.077 1.339-.398.257-.74.086c-.342-.171-1.444-.532-2.75-1.698-1.016-.907-1.701-2.027-1.899-2.369s-.021-.527.15-.698c.154-.154.342-.398.513-.598.171-.2.228-.342.342-.57s.057-.428-.029-.598c-.085-.171-.768-1.853-1.053-2.539-.277-.665-.56-.574-.768-.585l-.657-.011c-.2 0-.527.075-.804.372-.277.296-1.057 1.033-1.057 2.52s1.082 2.923 1.233 3.124c.152.2 2.132 3.255 5.165 4.564.722.312 1.285.498 1.724.637.724.23 1.382.197 1.902.12.58-.086 1.784-.729 2.036-1.432.252-.704.252-1.306.176-1.432-.075-.123-.278-.2-.62-.37z"/>
+  </svg>
+</a>
+
+</body>
+</html>
